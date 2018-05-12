@@ -1,17 +1,18 @@
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-
-public class Deque<Item> implements Iterable<Item>{
+public class Deque<Item>{
 
     //Number of items currently in the deque
     private int size;
-    Node first;
-    Node last;
+    Node<Item> first;
+    Node<Item> last;
     
-    private class Node {
+    private class Node<Item> {
 	Item item;
-        Node next;
-	Node previous;
+        Node<Item> next;
+	Node<Item> previous;
+
+	public Item getItem(){
+	    return item;
+	}
     }
 
     public boolean isEmpty(){
@@ -24,7 +25,7 @@ public class Deque<Item> implements Iterable<Item>{
 
     public void addToFront(Item item){
 	
-	Node newFirst = new Node();
+	Node<Item> newFirst = new Node<Item>();
 	newFirst.item = item;
 	
 	if(!isEmpty()){
@@ -42,7 +43,7 @@ public class Deque<Item> implements Iterable<Item>{
 
     public void addToEnd(Item item){
 	
-	Node newEnd = new Node();
+	Node<Item> newEnd = new Node<Item>();
 	newEnd.item = item;
 	
 	if(!isEmpty()){
@@ -60,7 +61,7 @@ public class Deque<Item> implements Iterable<Item>{
 
     public Item removeFromFront(){
 
-	Node oldFirst = new Node();
+	Node<Item> oldFirst = new Node<Item>();
 	oldFirst = first;
 	first = first.next;
 
@@ -72,40 +73,6 @@ public class Deque<Item> implements Iterable<Item>{
 
 	size--;
 
-	return oldFirst.item;
-    }
-
-    @Override
-    public Iterator<Item> iterator() {
-        return new ItemsIterator();
-    }
-
-    private class ItemsIterator implements Iterator<Item> {
-
-        private Node current;
-
-        public ItemsIterator() {
-            current = first;
-        }
-
-        @Override
-        public boolean hasNext() {
-            return current != null;
-        }
-
-        @Override
-        public Item next() {
-            if (current == null)
-                throw new NoSuchElementException();
-
-            Item item = current.item;
-            current = current.next;
-            return item;
-        }
-
-        @Override
-        public void remove() {
-            throw new UnsupportedOperationException();
-        }
+	return oldFirst.getItem();
     }
 }
