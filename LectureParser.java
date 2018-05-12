@@ -10,6 +10,10 @@
  * F -> v
  * F -> (E)
  *
+ * Usage: java LectureParser
+ * If the regexp in p[] is not a valid regular expression will print 'error'
+ * If it's a valid regular expression won't output anything
+ *
  ************************************************************************/
 
 
