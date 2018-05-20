@@ -15,8 +15,8 @@ public class Deque<Item>{
     Node<Item> last;
 
     /*****************************************************
-    *     Doubly-linked List 
-    *****************************************************/
+     *     Doubly-linked List 
+     *****************************************************/
     private class Node<Item> {
 	Item item;
 	//Pointer to the next item in the deque
@@ -31,22 +31,22 @@ public class Deque<Item>{
     }
 
     /*****************************************************
-    *     Checks if the deque is empty  
-    *****************************************************/
+     *     Checks if the deque is empty  
+     *****************************************************/
     public boolean isEmpty(){
 	return head == null;
     }
 
     /*****************************************************
-    *     Gets the size of the deque    
-    *****************************************************/
+     *     Gets the size of the deque    
+     *****************************************************/
     public int getSize(){
 	return size;
     }
 
     /*****************************************************
-    *     Adds an item to the front of the deque    
-    *****************************************************/
+     *     Adds an item to the front of the deque    
+     *****************************************************/
     public void addToFront(Item item){
 	//Create temp node to store the new item
 	Node<Item> newHead = new Node<Item>();
@@ -72,8 +72,8 @@ public class Deque<Item>{
     }
 
     /*****************************************************
-    *     Adds an item to the end of the deque    
-    *****************************************************/
+     *     Adds an item to the end of the deque    
+     *****************************************************/
     public void addToEnd(Item item){
 	//Create temp node to store the new last item
 	Node<Item> newEnd = new Node<Item>();
@@ -99,8 +99,8 @@ public class Deque<Item>{
     }
 
     /*****************************************************
-    *     Removes an item from the front of the deque  
-    *****************************************************/
+     *     Removes an item from the front of the deque  
+     *****************************************************/
     public Item removeFromFront(){
 	//Create temp node to store the item we want to remove
 	Node<Item> oldHead = new Node<Item>();
