@@ -124,4 +124,40 @@ public class Deque<Item>{
 	//Returns the item we removed from the deque
 	return oldHead.getItem();
     }
+    
+    /*****************************************************
+     *     Removes an item from the end of the deque  
+     *****************************************************/
+    public Item removeFromEnd(){
+	//Create a temporary node
+	Node<Item> oldLast = new Node<Item>();
+	oldLast = last;
+	//set the last to its previous item
+	last = last.previous;
+	//if it is null, then there is no que
+	if(last == null){
+	    //so set head null also
+	    head = null;
+	}
+	else{
+	    //remove the last null from the Deque
+	    last.next = null;
+	}
+	//Decrease the size of the deque by 1
+	size--;
+	//return the item removed from deque
+	return oldLast.getItem();
+    }
+
+    /*****************************************************
+     *     Prints each item of the Deque from head to last
+     *     Mainly for debugging purposes
+     *****************************************************/
+    public void print() {
+	Node current = head;
+	while(current != null){
+	    System.err.println(current.item);
+	    current = current.next;
+	}
+    }
 }
